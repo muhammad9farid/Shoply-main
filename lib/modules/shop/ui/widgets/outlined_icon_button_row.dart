@@ -14,7 +14,7 @@ class CustomOutlinedIconButton extends StatelessWidget {
     super.key,
     required this.label,
     required this.icon,
-    this.size = const Size(182, 48),
+    this.size = const Size(175, 45),
     this.color = const Color(0xFFD9D9D9),
     required this.labelStyle,
   });
@@ -44,11 +44,11 @@ class OutlinedIconButtonRow extends StatelessWidget {
           icon: const Icon(
             Icons.remove_red_eye_outlined,
             color: Color(0xFF232327),
-            size: 24,
+            size: 20,
           ),
           labelStyle: GoogleFonts.montserrat(
             fontWeight: FontWeightHelper.medium,
-            fontSize: 14,
+            fontSize: 13,
             color: Colors.black,
           ),
         ),
@@ -57,11 +57,11 @@ class OutlinedIconButtonRow extends StatelessWidget {
           icon: const Icon(
             Icons.compare_arrows_outlined,
             color: Color(0xFF232327),
-            size: 24,
+            size: 20,
           ),
           labelStyle: GoogleFonts.montserrat(
             fontWeight: FontWeightHelper.medium,
-            fontSize: 14,
+            fontSize: 13,
             color: Colors.black,
           ),
         ),

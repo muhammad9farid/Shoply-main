@@ -34,7 +34,7 @@ class SizeSelectionSection extends StatelessWidget {
                 label: Text(
                   "${cubit.sizes[index]} UK",
                   style: GoogleFonts.montserrat(
-                    fontSize: 12,
+                    fontSize: 11,
                     fontWeight: FontWeightHelper.semiBold,
                     color: cubit.selectedSizeIndex == index ? Colors.white : const Color(0xFFFA7189),
                   ),

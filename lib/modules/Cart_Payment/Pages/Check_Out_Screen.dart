@@ -148,7 +148,6 @@ class CheckOutScreen extends StatelessWidget {
                     ),
                     Container(
                       width: MediaQuery.sizeOf(context).width,
-                      height: MediaQuery.sizeOf(context).height * 0.7,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -157,7 +156,7 @@ class CheckOutScreen extends StatelessWidget {
                                   fontWeight: FontWeight.bold, fontSize: 20)),
                           Container(
                             width: MediaQuery.sizeOf(context).width,
-                            height: MediaQuery.sizeOf(context).height * 0.65,
+                            height: MediaQuery.sizeOf(context).height * 0.6,
                             child: ListView.builder(
                               itemCount: Items.length,
                               itemBuilder: (context, index) {
@@ -310,7 +309,7 @@ class CheckOutScreen extends StatelessWidget {
                                 );
                               },
                               itemExtent:
-                                  MediaQuery.sizeOf(context).height * 0.3,
+                                  MediaQuery.sizeOf(context).height * 0.28,
                               padding: EdgeInsets.all(1),
                             ),
                           ),

@@ -79,7 +79,7 @@ class ShoppingBagScreen extends StatelessWidget {
                 ),
                 Container(
                   alignment: Alignment.centerRight,
-                  width: MediaQuery.sizeOf(context).width * 0.3,
+                  width: MediaQuery.sizeOf(context).width * 0.25,
                   child: const Text('Apply Coupon',
                       style: TextStyle(fontSize: 15, color: Color(0xffF83758))),
                 ),
@@ -212,7 +212,10 @@ class ShoppingBagScreen extends StatelessWidget {
                                   ],
                                 ),
                                 Container(
-                                  width: MediaQuery.sizeOf(context).width * 0.5,
+                                  width:
+                                      MediaQuery.sizeOf(context).width * 0.55,
+                                  height:
+                                      MediaQuery.sizeOf(context).height * 0.1,
                                   child: Column(
                                     children: [
                                       Row(
@@ -242,7 +245,7 @@ class ShoppingBagScreen extends StatelessWidget {
                                                 hint: const Text('Size ',
                                                     style: TextStyle(
                                                         color: Colors.black,
-                                                        fontSize: 20)),
+                                                        fontSize: 13)),
                                                 items: sizes.map((size) {
                                                   return DropdownMenuItem(
                                                     value: size,
@@ -286,7 +289,7 @@ class ShoppingBagScreen extends StatelessWidget {
                                                 hint: const Text('Qty',
                                                     style: TextStyle(
                                                         color: Colors.black,
-                                                        fontSize: 20)),
+                                                        fontSize: 13)),
                                                 items:
                                                     quantities.map((quantity) {
                                                   return DropdownMenuItem(
@@ -336,7 +339,7 @@ class ShoppingBagScreen extends StatelessWidget {
                     ),
                     /////////////////////////////////////////////////////////////////////////
                     Container(
-                      height: MediaQuery.sizeOf(context).height * 0.4,
+                      height: MediaQuery.sizeOf(context).height * 0.5,
                       width: MediaQuery.sizeOf(context).width,
                       child: ListView.separated(
                           itemBuilder: (context, index) {
