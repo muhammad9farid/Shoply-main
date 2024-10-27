@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:stylish_app/modules/Cart_Payment/Pages/shipping_screen.dart';
@@ -6,8 +5,6 @@ import 'package:stylish_app/modules/Cart_Payment/Pages/shipping_screen.dart';
 import '../Cubit/main_cubit.dart';
 import '../Cubit/main_state.dart';
 import 'Check_Out_Screen.dart';
-
-
 
 String? selectedSize;
 int? selectedQuantity;

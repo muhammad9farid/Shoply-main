@@ -20,170 +20,175 @@ class _SignUpScreenState extends State<SignUpScreen> {
   Widget build(BuildContext context) {
     AuthCubit cubit = AuthCubit.get(context);
     return Scaffold(
-      body: SafeArea(
-        child: BlocBuilder<AuthCubit, AuthState>(
-          builder: (context, state) {
-            return Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: SingleChildScrollView(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    // Create an account Text
-                    const Text(
-                      'Create an ',
-                      style: TextStyle(
-                        fontSize: 30,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    const Text(
-                      'account',
-                      style: TextStyle(
-                        fontSize: 30,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-
-                    const SizedBox(height: 40),
-                    // Username/Email field
-                    CustomFormField(
-                      hintText: 'Name',
-                      icon: const Icon(Icons.person),
-                      control: cubit.nameControl,
-                    ),
-                    const SizedBox(
-                      height: 16,
-                    ),
-                    CustomFormField(
-                      hintText: 'Email',
-                      icon: const Icon(Icons.person),
-                      control: cubit.emailControl,
-                    ),
-                    const SizedBox(
-                      height: 16,
-                    ),
-                    CustomFormField(
-                      hintText: 'Phone',
-                      icon: const Icon(Icons.phone),
-                      control: cubit.phoneControl,
-                    ),
-                    const SizedBox(
-                      height: 16,
-                    ),
-                    SelectGender(
-                      onGenderSelected: (String value) {
-                        setState(() {
-                          cubit.selectedGender = value;
-                        });
-                      },
-                    ),
-                    const SizedBox(height: 16),
-                    // Password field
-                    CustomPassFormField(
-                      hintText: 'Password',
-                      prefixIcon: const Icon(Icons.lock),
-                      suffixIcon: const Icon(Icons.visibility),
-                      passControl: cubit.passControl,
-                    ),
-                    const SizedBox(height: 16),
-                    // Confirm Password field
-                    CustomPassFormField(
-                      hintText: 'Confirm Password',
-                      prefixIcon: const Icon(Icons.lock),
-                      suffixIcon: const Icon(Icons.visibility),
-                      passControl: cubit.confirmpassControl,
-                    ),
-                    const SizedBox(height: 16),
-                    // Terms of agreement
-                    const Text(
-                      'By clicking the Register button, you agree to the public offer',
-                      textAlign: TextAlign.right,
-                      style: TextStyle(fontSize: 12),
-                    ),
-
-                    const SizedBox(height: 16),
-
-                    // Create Account Button
-                    ElevatedButton(
-                      onPressed: () {
-                        cubit.registerService(
-                          name: cubit.nameControl.text,
-                          phone: cubit.phoneControl.text,
-                          gender: cubit.selectedGender,
-                          email: cubit.emailControl.text,
-                          password: cubit.passControl.text,
-                          passwordConfirmation: cubit.confirmpassControl.text,
-                        );
-                        Navigator.pushNamed(context, 'LoginScreen');
-                      },
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: kPrimaryColor, // background color
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 100, vertical: 15),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(3),
-                        ),
-                      ),
-                      child: const Text(
-                        'Create Account',
-                        style: TextStyle(fontSize: 16, color: Colors.white),
-                      ),
-                    ),
-                    const SizedBox(height: 20),
-                    // OR Continue with
-                    const Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text('- OR Continue with -'),
-                      ],
-                    ),
-                    const SizedBox(height: 20),
-
-                    // Social Media buttons
-                    const Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        CustomIconPage(
-                          iconButton: 'assets/images/Google.png',
-                        ),
-                        SizedBox(width: 10),
-                        CustomIconPage(
-                          iconButton: 'assets/images/Apple.png',
-                        ),
-                        SizedBox(width: 10),
-                        CustomIconPage(
-                          iconButton: 'assets/images/Facebook.png',
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 20),
-                    // Already have an account? Login
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        const Text('I Already Have an Account'),
-                        TextButton(
-                          onPressed: () {
-                            Navigator.pushNamed(context, 'LoginScreen');
-                          },
+      backgroundColor: Colors.white,
+      body: BlocBuilder<AuthCubit, AuthState>(
+        builder: (context, state) {
+          return Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: SingleChildScrollView(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(vertical: 15.0),
+                child: SafeArea(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      // Create an account Text
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Container(alignment: Alignment.centerLeft,
                           child: const Text(
-                            'Login',
+                            'Create an\nAccount!',
                             style: TextStyle(
-                              color: Colors.red,
-                              decoration: TextDecoration.underline,
-                              decorationColor: Colors.red,
+                              fontFamily: "MontserratB",
+                              fontSize: 45,
                             ),
                           ),
                         ),
-                      ],
-                    ),
-                  ],
+                      ),
+                      Container(
+                        width: MediaQuery.sizeOf(context).width,
+                        height: MediaQuery.sizeOf(context).height * 0.5,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            CustomFormField(
+                              hintText: 'Name',
+                              icon: const Icon(Icons.person),
+                              control: cubit.nameControl,
+                            ),
+                            CustomFormField(
+                              hintText: 'Email',
+                              icon: const Icon(Icons.person),
+                              control: cubit.emailControl,
+                            ),
+                            CustomFormField(
+                              hintText: 'Phone',
+                              icon: const Icon(Icons.phone),
+                              control: cubit.phoneControl,
+                            ),
+                            SelectGender(
+                              onGenderSelected: (String value) {
+                                setState(() {
+                                  cubit.selectedGender = value;
+                                });
+                              },
+                            ),
+                            // Password field
+                            CustomPassFormField(
+                              hintText: 'Password',
+                              prefixIcon: const Icon(Icons.lock),
+                              suffixIcon: const Icon(Icons.visibility),
+                              passControl: cubit.passControl,
+                            ),
+                            // Confirm Password field
+                            CustomPassFormField(
+                              hintText: 'Confirm Password',
+                              prefixIcon: const Icon(Icons.lock),
+                              suffixIcon: const Icon(Icons.visibility),
+                              passControl: cubit.confirmpassControl,
+                            ),
+                            // Terms of agreement
+                            const Text(
+                              'By clicking the Register button, you agree to the public offer',
+                              textAlign: TextAlign.right,
+                              style: TextStyle(fontSize: 12),
+                            ),
+                          ],
+                        ),
+                      ),
+
+                      // Create Account Button
+                      Container(
+                        decoration: BoxDecoration(
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(15))),
+                        width: MediaQuery.sizeOf(context).width * 0.8,
+                        height: MediaQuery.sizeOf(context).height * 0.08,
+                        child: ElevatedButton(
+                          onPressed: () {
+                            cubit.registerService(
+                              name: cubit.nameControl.text,
+                              phone: cubit.phoneControl.text,
+                              gender: cubit.selectedGender,
+                              email: cubit.emailControl.text,
+                              password: cubit.passControl.text,
+                              passwordConfirmation:
+                                  cubit.confirmpassControl.text,
+                            );
+                            Navigator.pushNamed(context, 'LoginScreen');
+                          },
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: kPrimaryColor, // background color
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 100, vertical: 15),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(15),
+                            ),
+                          ),
+                          child: const Text(
+                            'Create Account',
+                            style: TextStyle(fontSize: 25, color: Colors.white),
+                          ),
+                        ),
+                      ),
+                      // OR Continue with
+                      Container(
+                        child: const Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text('- OR Continue with -'),
+                          ],
+                        ),
+                      ),
+
+                      // Social Media buttons
+                      Container(
+                        width: MediaQuery.sizeOf(context).width * 0.8,
+                        height: MediaQuery.sizeOf(context).height * 0.08,
+                        child: const Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            CustomIconPage(
+                              iconButton: 'assets/images/Google.png',
+                            ),
+                            SizedBox(width: 10),
+                            CustomIconPage(
+                              iconButton: 'assets/images/Apple1.png',
+                            ),
+                            SizedBox(width: 10),
+                            CustomIconPage(
+                              iconButton: 'assets/images/Facebook.png',
+                            ),
+                          ],
+                        ),
+                      ),
+                      // Already have an account? Login
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const Text('I Already Have an Account'),
+                          TextButton(
+                            onPressed: () {
+                              Navigator.pushNamed(context, 'LoginScreen');
+                            },
+                            child: const Text(
+                              'Login',
+                              style: TextStyle(
+                                color: Colors.red,
+                                decoration: TextDecoration.underline,
+                                decorationColor: Colors.red,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
               ),
-            );
-          },
-        ),
+            ),
+          );
+        },
       ),
     );
   }

@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       routes: {
         'S1': (context) => const SplashScreen(),
-        'S2': (context) => const SplashScreen2(),
+        'S2': (context) => SplashScreen2(),
         'S3': (context) => const SplashScreen3(),
         'S4': (context) => const SplashScreen4(),
         'SignUpScreen': (context) => BlocProvider(

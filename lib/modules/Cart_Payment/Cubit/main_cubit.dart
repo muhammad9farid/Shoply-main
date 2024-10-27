@@ -22,4 +22,20 @@ class mainCubit extends Cubit<mainState> {
   void navigateBack() {
     emit(BackState());
   }
+
+  int Page1 = 0;
+
+  void IncPage({required int Page}) {
+    Page1 = Page; // Assign Page to Page1
+    emit(PagechangeState());
+  }
+
+
+  void IncPage1() {
+    Page1++;
+    emit(IncPageState());
+  }  void decPage1() {
+    Page1--;
+    emit(IncPageState());
+  }
 }
